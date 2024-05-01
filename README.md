@@ -46,7 +46,7 @@ To set up the Vendor Management System, follow these steps:
 
     ```bash
     git clone <repository-url>
-    cd vendor-management-system
+    cd vendor_management
     ```
 
  2. **Install dependencies:**
