@@ -5,42 +5,128 @@
 
 ## Overview
 
-Brief description of your project and its purpose.
+The Vendor Management System is a Django-based web application that facilitates vendor management, purchase order tracking, and performance metric monitoring. This system comprises several modules, each serving a specific purpose.
 
 ## Features
 
-- List of key features of your project.
-- Use bullet points for better readability.
+### Vendor Profile Management:
+- Create, retrieve, update, and delete vendor profiles.
+- Store vendor information including name, contact details, address, and unique vendor code.
+
+### Purchase Order Tracking:
+- Create, retrieve, update, and delete purchase orders.
+- Track details of each purchase order including PO number, vendor reference, order date, items, quantity, and status.
+- Filter purchase orders by vendor.
+
+### Vendor Performance Evaluation:
+- Calculate performance metrics for vendors including:
+  - On-Time Delivery Rate
+  - Quality Rating
+  - Response Time
+  - Fulfillment Rate
+- Display vendor performance metrics.
+
+# Table of Contents
+
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [API Endpoints](#api-endpoints)
+4. [Modules](#modules)
+5. [Authentication](#authentication)
+6. [Vendors](#vendors)
+7. [Purchase Orders](#purchase-orders)
+8. [Performance Tracking](#performance-tracking)
+9. [Requirements](#requirements)
 
 ## Installation
 
-Instructions on how to install and set up your project.
-Include any dependencies and how to install them.
+To set up the Vendor Management System, follow these steps:
+
+ 1. **Clone the repository:**
+
+    ```bash
+    git clone <repository-url>
+    cd vendor-management-system
+    ```
+
+ 2. **Install dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+ 3. **Apply database migrations:**
+
+    ```bash
+    python manage.py migrate
+    ```
+
+ 4. **Run the development server:**
+
+    ```bash
+    python manage.py runserver
+    ```
+
+ 5. **Access the application:**
+
+    Once the server is running, you can access the application at `http://localhost:8000` in your web browser.
 
 ## Usage
 
-Instructions on how to use your project.
-Provide examples if applicable.
+To use the Vendor Management System, follow these steps:
 
-## Configuration
+1. **Access the system through the provided URLs.**
+2. **Obtain an authentication token** by making a POST request to `/token/` with valid credentials.
+3. **Use the token** to access protected endpoints, such as vendor creation (`/vendors/`) and purchase order management (`/purchase_orders/`).
 
-Explain any configuration options or settings in your project.
+## API Endpoints
 
-## Contributing
+### Authentication
 
-Guidelines for contributing to your project.
-Include information on how to report issues and submit pull requests.
+- `/token/`: Obtain an authentication token.
+- `/signup/`: Register a new user.
 
-## License
+### Vendors
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- `/vendors/`: List and create vendors.
+- `/vendors/<int:id>/`: Retrieve, update, and delete a specific vendor.
+- `/vendors/<int:id>/performance`: Retrieve the performance metrics of a specific vendor.
 
-## Acknowledgements
+### Purchase Orders
 
-Any acknowledgements or credits for third-party libraries, resources, etc.
+- `/purchase_orders/`: List and create purchase orders.
+- `/purchase_orders/<int:id>/`: Retrieve, update, and delete a specific purchase order.
+- `/purchase_orders/<int:id>/acknowledge`: Acknowledge receipt of a purchase order.
+- `/purchase_orders/<int:id>/delivered`: Mark a purchase order as delivered.
+- `/purchase_orders/<int:id>/addrating`: Add a quality rating to a purchase order.
+
+### Performance Tracking
+
+- `/vendors/`: List and create vendors.
+- `/vendors/<int:id>/performance`: Retrieve the performance metrics of a specific vendor.
+
+## Modules
+
+### Authentication
+
+The system uses Django SimpleJWT for token-based authentication. The provided MyTokenObtainPairView allows users to obtain JWT tokens, and the UserRegister view enables user registration.
+
+### Vendors
+
+Manage vendors through the VendorView and VendorDetailsView classes. Retrieve vendor performance metrics with the VendorPerformanceView.
+
+### Purchase Orders
+
+Handle purchase orders using PurchaseOrderView for listing and creation, and PurchaseOrderCRUDView for retrieval, updating, and deletion. Acknowledge, deliver, and rate purchase orders using additional endpoints.
+
+### Performance Tracking
+
+Retrieve vendor performance metrics through the VendorPerformanceView.
+
+## Requirements
+
+The system requires the following dependencies, listed in the `requirements.txt` file.
 
 ## Contact
 
-- Your name
-- Your email address
-- Any other contact information (optional)
+If you have any concerns or feedback, feel free to reach out: [https://www.linkedin.com/in/ridha-mariyam/](mailto:ridhamariyam44@gmail.com).
