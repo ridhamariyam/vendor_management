@@ -129,4 +129,7 @@ The system requires the following dependencies, listed in the `requirements.txt`
 
 ## Contact
 
-If you have any concerns or feedback, feel free to reach out: [https://www.linkedin.com/in/ridha-mariyam/](mailto:ridhamariyam44@gmail.com).
+If you have any concerns or feedback, feel free to reach out:
+
+- Email: [ridhamariyam44@gmail.com](mailto:ridhamariyam44@gmail.com)
+- LinkedIn: [Ridha Mariyam](https://www.linkedin.com/in/ridha-mariyam/)
